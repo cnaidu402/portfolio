@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | AI, ML & Data Science</title>
+    <meta name="description" content="Personal portfolio showcasing skills, projects, and experience in AI, ML, and Data Science.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <a href="#" class="logo">Charan<span class="accent">Kumar</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="subtitle">Hello, I'm Charan Kumar Pathakamuri</p>
+            <h1 class="title">Passionate <span class="gradient-text"><span id="typing-text">AI Engineer</span><span class="cursor"></span></span></h1>
+            <p class="description">
+                Specializing in AI Engineering, Machine Learning, and Data Science. turning complex data into actionable insights and intelligent systems.
+            </p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn primary-btn">View My Work</a>
+                <a href="#contact" class="btn secondary-btn">Contact Me</a>
+            </div>
+        </div>
+        <div class="hero-background-shapes">
+            <div class="shape shape-1"></div>
+            <div class="shape shape-2"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container section-header">
+            <h2>About <span class="accent">Me</span></h2>
+        </div>
+        <div class="container about-content align-center">
+            <div class="skills-glass-card glass-panel">
+                <h3>Core Competencies</h3>
+                <div class="skills-grid">
+                    <div class="skill-tag">Python</div>
+                    <div class="skill-tag">PyTorch / TensorFlow</div>
+                    <div class="skill-tag">Data Modeling</div>
+                    <div class="skill-tag">Predictive Analytics</div>
+                    <div class="skill-tag">NLP</div>
+                    <div class="skill-tag">Computer Vision</div>
+                    <div class="skill-tag">SQL & NoSQL</div>
+                    <div class="skill-tag">Cloud Deployments</div>
+                </div>
+            </div>
+            <div class="about-text">
+                <p>I am a driven professional with a deep enthusiasm for Artificial Intelligence, Machine Learning, and Data Science. I bridge the gap between advanced analytical algorithms and practical business solutions.</p>
+                <p>Equipped with a strong foundation in statistical modeling and software engineering, I build robust, scalable AI applications that solve real-world problems.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="experience" id="experience">
+        <div class="container section-header">
+            <h2>Professional <span class="accent">Experience</span></h2>
+            <p class="subtitle-text">A timeline of my professional journey.</p>
+        </div>
+        <div class="container timeline">
+            <!-- Experience Item 1 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel">
+                    <h3>LLM Engineer (Applied AI & Backend Engineering)</h3>
+                    <h4>Kanehl Consulting | May 2025 – Nov 2025</h4>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-top: 1rem; line-height: 1.8;">
+                        <li>Developed Python-based services and agentic workflows using LangGraph, orchestrating tool-calling and multi-step reasoning to automate data usage for 10+ internal departments.</li>
+                        <li>Architected RAG pipelines utilizing Milvus and FastAPI, processing 1.5M+ unstructured records to improve context-aware retrieval precision by 30%.</li>
+                        <li>Owned backend engineering tasks including API development and system integration, handling 50,000+ daily inference calls with &lt;150ms P95 latency and 99.9% system uptime.</li>
+                        <li>Built and configured AI workflows running on AWS ECS and Kubernetes, implementing automated evaluation harnesses to reduce reasoning-based hallucinations by 25%.</li>
+                        <li>Optimized system performance through the implementation of asynchronous processing (asyncio) and connection pooling, reducing cloud compute overhead by 15%.</li>
+                        <li>Documented designs and experiments in clear engineering artifacts, following Agile ceremonies to deliver features incrementally in a fast-paced environment.</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Experience Item 2 -->
+            <div class="timeline-item">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content glass-panel">
+                    <h3>Graduate Assistant (AI Reliability & System Validation)</h3>
+                    <h4>University of Maryland, Baltimore County (UMBC) | Aug 2025 – Dec 2025</h4>
+                    <ul style="padding-left: 1.5rem; color: var(--text-secondary); margin-top: 1rem; line-height: 1.8;">
+                        <li>Designed and prototyped agentic AI patterns to test the robustness of Transformer architectures, running 1,000+ adversarial scenarios to identify vulnerabilities.</li>
+                        <li>Analyzed and debugged failures in 5,000+ model transcripts, informing fine-tuning strategies that reduced model error rates by 22% and improved output Pydantic validation.</li>
+                        <li>Developed automated pipelines to benchmark grounding accuracy, accelerating the research-to-production cycle by 20%.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container section-header">
+            <h2>Featured <span class="accent">Projects</span></h2>
+            <p class="subtitle-text">My latest work from GitHub.</p>
+        </div>
+        
+        <!-- Interactive loading state -->
+        <div id="loading" class="text-center">
+            <i class="fas fa-spinner fa-spin fa-2x" style="color: var(--accent-primary);"></i>
+            <p style="margin-top: 10px; color: var(--text-secondary);">Fetching latest repositories...</p>
+        </div>
+
+        <div class="container projects-grid" id="projects-container">
+            <!-- Projects injected via JS -->
+        </div>
+        <div class="container text-center mt-3">
+            <a href="https://github.com/cnaidu402" class="btn secondary-btn" target="_blank" rel="noopener noreferrer">View All on GitHub</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container glass-panel contact-glass text-center">
+            <h2>Let's build something <span class="accent">amazing</span></h2>
+            <p>I am currently open to new opportunities in AI, ML, and Data Science.</p>
+            <div class="contact-links">
+                <a href="mailto:cnaisu402@gmail.com" class="contact-link"><i class="fas fa-envelope"></i> cnaisu402@gmail.com</a>
+                <a href="https://github.com/cnaidu402" target="_blank" class="contact-link"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/charan-kumar/" target="_blank" class="contact-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Developed with ♥. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
