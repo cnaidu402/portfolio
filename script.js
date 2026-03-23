@@ -102,7 +102,7 @@ async function fetchProjects() {
 
             card.innerHTML = `
                 <div style="display: flex; flex-direction: column; height: 100%;">
-                    <h3>${repo.name}</h3>
+                    <h3 style="text-transform: capitalize;">${repo.name.replace(/[-_]/g, ' ')}</h3>
                     <p>${repo.description || 'No description provided. Explore the code on GitHub to learn more about this project.'}</p>
                     
                     <div class="project-meta">
