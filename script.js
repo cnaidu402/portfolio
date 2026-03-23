@@ -2,6 +2,14 @@
 const GITHUB_USERNAME = 'cnaidu402';
 const API_URL = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`;
 
+// Custom Project Descriptions
+const customDescriptions = {
+    'voice_ai_concierge': "The Real-Time Multilingual AI Voice Concierge is an ultra-low latency voice agent designed to function as an automated front-desk assistant. Built with FastAPI and WebSockets, it integrates Deepgram for speech-to-text, Claude 3.5 Haiku for agentic reasoning, and ElevenLabs for life-like voice synthesis. Key technical highlights include full-duplex streaming, sub-second interruption handling, and the ability to perform live tool calls for tasks like checking room inventory.",
+    'cricket-query-ai': "Cricket Query AI is a sophisticated Text-to-SQL conversational agent that allows users to ask complex questions about Asia Cup cricket data in plain English. Powered by Retrieval Augmented Generation (RAG) and Anthropic's Claude LLM, the system translates natural language into executable SQL queries against a Microsoft SQL Server database. It not only retrieves accurate data but also automatically generates rich, interactive visualizations like charts and graphs to make insights easily accessible to non-technical users.",
+    'finsyngen-synthetic-financial-data-generator-using-llms': "FinSynGen is a robust framework that utilizes Large Language Models (LLMs) to generate realistic synthetic financial return data for stocks, ETFs, and indexes. By pulling real data via yfinance and employing a feedback loop based on statistical metrics like volatility, skewness, and kurtosis, the system auto-corrects its outputs to ensure high fidelity. This tool is highly useful for Monte Carlo simulations, trading strategy backtesting, stress testing, and training AI models without exposing sensitive real-world records.",
+    'ai-chat-bot': "This project is an intelligent, domain-specific chatbot designed to answer Reddit FAQ questions using a Retrieval-Augmented Generation (RAG) approach. It utilizes LlamaIndex to fetch and index official Reddit content, ChromaDB for vector storage, and Gemini AI for natural language understanding and answering. Additionally, it features a built-in content safety filter to block sensitive topics and an evaluation system to score responses on relevance, completeness, and clarity."
+};
+
 // DOM Elements
 const projectsContainer = document.getElementById('projects-container');
 const loadingElement = document.getElementById('loading');
@@ -103,7 +111,7 @@ async function fetchProjects() {
             card.innerHTML = `
                 <div style="display: flex; flex-direction: column; height: 100%;">
                     <h3 style="text-transform: capitalize;">${repo.name.replace(/[-_]/g, ' ')}</h3>
-                    <p>${repo.description || 'No description provided. Explore the code on GitHub to learn more about this project.'}</p>
+                    <p>${customDescriptions[repo.name.toLowerCase()] || repo.description || 'No description provided. Explore the code on GitHub to learn more about this project.'}</p>
                     
                     <div class="project-meta">
                         <span class="project-lang">
