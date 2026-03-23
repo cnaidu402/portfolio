@@ -42,18 +42,18 @@ async function fetchProjects() {
             fetch(API_URL),
             fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/voice_ai_concierge`)
         ]);
-        
+
         if (!response.ok) {
             throw new Error('Failed to fetch projects');
         }
-        
+
         let repos = await response.json();
         let featuredRepo = null;
-        
+
         if (featuredResponse.ok) {
             featuredRepo = await featuredResponse.json();
         }
-        
+
         // Filter out portfolio, UMBC Data 606, and the featured repo (to avoid duplicates)
         repos = repos.filter(repo => {
             const name = repo.name.toLowerCase();
@@ -62,17 +62,17 @@ async function fetchProjects() {
             const isFeatured = featuredRepo && repo.id === featuredRepo.id;
             return !isPortfolio && !isUMBC606 && !isFeatured;
         });
-        
+
         // Add featured repo to the top
         if (featuredRepo) {
             // Keep total at 6 by slicing if necessary
             repos = repos.slice(0, 5);
             repos.unshift(featuredRepo);
         }
-        
+
         // Remove loading state
         loadingElement.style.display = 'none';
-        
+
         // Generate and append cards
         if (repos.length === 0) {
             projectsContainer.innerHTML = '<p class="text-center w-100 p-4">No public repositories found yet.</p>';
@@ -94,7 +94,7 @@ async function fetchProjects() {
             const card = document.createElement('div');
             card.className = 'glass-panel project-card fade-in';
             card.style.animationDelay = `${index * 0.1}s`;
-            
+
             // Format date
             const updateDate = new Date(repo.updated_at).toLocaleDateString('en-US', {
                 month: 'short', year: 'numeric'
@@ -118,7 +118,7 @@ async function fetchProjects() {
                     </div>
                 </div>
             `;
-            
+
             projectsContainer.appendChild(card);
         });
 
@@ -169,7 +169,7 @@ function typeHeroRole() {
     if (!textElement) return;
 
     const currentRole = rolesToType[roleTypingIndex];
-    
+
     if (isDeletingRole) {
         textElement.textContent = currentRole.substring(0, charTypingIndex - 1);
         charTypingIndex--;
