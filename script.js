@@ -38,21 +38,37 @@ hamburger.addEventListener('click', () => {
 // Fetch GitHub Projects
 async function fetchProjects() {
     try {
-        const response = await fetch(API_URL);
+        const [response, featuredResponse] = await Promise.all([
+            fetch(API_URL),
+            fetch(`https://api.github.com/repos/${GITHUB_USERNAME}/voice_ai_concierge`)
+        ]);
         
         if (!response.ok) {
             throw new Error('Failed to fetch projects');
         }
         
         let repos = await response.json();
+        let featuredRepo = null;
         
-        // Filter out portfolio and UMBC Data 606
+        if (featuredResponse.ok) {
+            featuredRepo = await featuredResponse.json();
+        }
+        
+        // Filter out portfolio, UMBC Data 606, and the featured repo (to avoid duplicates)
         repos = repos.filter(repo => {
             const name = repo.name.toLowerCase();
             const isPortfolio = name === 'portfolio';
             const isUMBC606 = name.includes('umbc') && name.includes('606');
-            return !isPortfolio && !isUMBC606;
+            const isFeatured = featuredRepo && repo.id === featuredRepo.id;
+            return !isPortfolio && !isUMBC606 && !isFeatured;
         });
+        
+        // Add featured repo to the top
+        if (featuredRepo) {
+            // Keep total at 6 by slicing if necessary
+            repos = repos.slice(0, 5);
+            repos.unshift(featuredRepo);
+        }
         
         // Remove loading state
         loadingElement.style.display = 'none';
